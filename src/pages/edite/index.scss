@@ -1,0 +1,35 @@
+.edite-page-session {
+    padding: 20px;
+    height: var(--app-height);
+    .edite-page-session-title {
+        text-align: center;
+        height: 40px;
+        p {
+            font-size: 30px;
+            line-height: 70px;
+            font-weight: 900;
+        }
+    }
+    .edite-page-session-image {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        height: 100%;
+        .edite-page-session-image-results {
+            flex: 1;
+            padding: 80px;
+            min-height: 350px;
+            min-width: 350px;
+        }
+        .edite-page-session-image-menu {
+            .co {
+                width: 100%;
+            }
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

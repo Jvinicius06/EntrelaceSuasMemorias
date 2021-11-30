@@ -1,0 +1,55 @@
+.SessionHomePage {
+    height: 100vh;
+    height: var(--app-height);
+    width: 100vw;
+    background-color: #fffafa;
+}
+
+.HomePageArrow {
+    cursor: pointer;
+}
+
+.txt-body-home-title {
+    font-family: ScopeOne;
+    font-size: 29px;
+    height: 60px;
+    padding-bottom: 10px;
+    max-width: 450px;
+    width: 100%;
+    @media (min-width: 500px) {
+        font-size: 37px;
+    }
+}
+
+.txt-body-home {
+    font-family: ScopeOne;
+    font-size: 18px;
+    line-height: 25px;
+    max-width: 450px;
+    width: 100%;
+    text-align: justify;
+    text-align: right;
+}
+
+.sesion-body-home-txt {
+    flex: 1;
+    padding: 10% 20px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: right;
+    .session {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        justify-content: flex-end;
+        .inside-buttom {
+            display: flex;
+            justify-content: flex-end;
+            float: right;
+        }
+    }
+}

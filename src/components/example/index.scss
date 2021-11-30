@@ -1,0 +1,23 @@
+.exemple-component-session {
+    flex: 1;
+    overflow: hidden;
+}
+.exemple-component-boddy {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.exemple-component-boddy-protec {
+    position: relative;
+}
+
+.exemple-component-item {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}

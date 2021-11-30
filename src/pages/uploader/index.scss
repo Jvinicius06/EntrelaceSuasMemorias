@@ -1,0 +1,25 @@
+.uploader-session-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .uploader-session-drag {
+        width: calc(100vw - 60px);
+        padding: 30px;
+    }
+    .uploader-session-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        p {
+            font-family: ScopeOne;
+            font-size: 27px;
+        }
+        .smal {
+            font-family: ScopeOne;
+            font-size: 11px;
+        }
+    }
+}

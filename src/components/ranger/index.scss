@@ -1,0 +1,36 @@
+.ranger-compponent-session {
+    width: 100%;
+    min-width: 100px;
+    height: 30px;
+    .ranger-compponent-body {
+        touch-action: none;
+        cursor: pointer;
+        min-width: 0;
+        width: 100%;
+        .ranger-compponent-line {
+            position: relative;
+            top: 16px;
+            min-width: 0;
+            height: 3px;
+            background-color: black;
+        }
+        .ranger-compponent-line-grid {
+            position: relative;
+            height: 2px;
+            top: 13px;
+            min-width: 0;
+            width: 100%;
+            border: 1px dashed black;
+        }
+        .pointer {
+            position: relative;
+            left: calc(50% - 13px);
+            touch-action: none;
+            height: 26px !important;
+            min-width: 0;
+            width: 26px;
+            border-radius: 50%;
+            background-color: black;
+        }
+    }
+}

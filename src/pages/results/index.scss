@@ -1,0 +1,51 @@
+.results-session {
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    .topbar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: stretch;
+        .bef {
+            flex: 1;
+            min-width: 200px;
+            @media only screen and (max-width: 800px) {
+                order: 1;
+            }
+        }
+        .ranger {
+            flex: 3;
+            min-width: 400px;
+            text-align: center;
+            @media only screen and (max-width: 800px) {
+                min-width: 100%;
+                order: -1;
+                padding: 10px 20px;
+            }
+        }
+        .next {
+            flex: 1;
+            min-width: 200px;
+            @media only screen and (max-width: 800px) {
+                order: 2;
+            }
+        }
+    }
+    .image {
+        flex: 1 !important;
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        overflow: visible;
+        * {
+            overflow: visible;
+            top: -10px;
+            transform-origin: 50% 0;
+        }
+    }
+}

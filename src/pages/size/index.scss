@@ -1,0 +1,63 @@
+.circle-size-session {
+    min-height: var(--app-height);
+    display: flex;
+    flex-direction: column;
+    .circle-size-title {
+        text-align: center;
+        height: 90px;
+        p {
+            font-size: 30px;
+            line-height: 90px;
+            font-weight: 900;
+        }
+    }
+    .circle-size {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .GG {
+            width: calc(100vw / 3);
+            height: calc(100vw / 3);
+            max-width: calc(100vh / 2);
+            max-height: calc(100vh / 2);
+        }
+        .MM {
+            width: calc(100vw / 4);
+            height: calc(100vw / 4);
+            max-width: calc(100vh / 3);
+            max-height: calc(100vh / 3);
+        }
+        .PP {
+            width: calc(100vw / 5);
+            height: calc(100vw / 5);
+            max-width: calc(100vh / 4);
+            max-height: calc(100vh / 4);
+        }
+    }
+    .circle-size-footer {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        .footer {
+            span#n {
+                font-weight: 900;
+            }
+            div {
+                padding: 5px;
+            }
+            * {
+                min-width: 500px;
+                line-height: 30px;
+            }
+            justify-content: center;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+}

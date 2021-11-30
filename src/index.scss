@@ -1,0 +1,40 @@
+:root {
+    --app-height: 100hv;    
+    font-family: ScopeOne;
+}
+
+:root > * {
+    font-family: ScopeOne;
+    color: black;
+}
+
+@font-face {
+    font-family: Handodle;
+    src: url("./assets/fonts/Handodle.ttf");
+}
+@font-face {
+    font-family: Cheveuxdange;
+    src: url("./assets/fonts/Cheveuxdange.ttf");
+}
+
+@font-face {
+    font-family: ScopeOne;
+    src: url("./assets/fonts/Scope_One/ScopeOne-Regular.ttf");
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b8b8b8;
+}
+::-webkit-scrollbar-track {
+    background: #d1d1d1;
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 0px #f0f0f0;
+}
