@@ -70,14 +70,14 @@ const SelectSizePage: React.FC<{}> = ({ }) => {
                             onClickAfterLoader={() => { setSizeSelect(1) }}
                         />
                     </div>
-                    <div className="PP">
+                    {/* <div className="PP">
                         <div>
                             <CircleComponentSize
                                 acctive={sizeSelect == 3}
                                 onClickAfterLoader={() => { setSizeSelect(3) }}
                             />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="circle-size-footer">
                     <div>
