@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import ArteContext from '../../components/arte/ArteContext';
 import DragImageComponent from '../../components/drag_image';
@@ -10,23 +10,25 @@ const UploaderPage: React.FC<{}> = ({ }) => {
     const history = useHistory();
     const { myArte, setOriginalImage, setArrayLine, setEditeImage } = useContext(ArteContext);
     const [image, setImage] = useState<string | null>();
+
     useEffect(() => {
         if (myArte?.form === undefined || myArte?.form === null) history.push('/');
     }, [history, myArte?.form]);
 
-    useEffect(() => {
-        if (image && setOriginalImage) {
-            setOriginalImage(image);
+    const setImageHandles = useCallback((image?: string | null) => {
+        if (image) {
+            setOriginalImage?.(image);
             setArrayLine?.(() => []);
             setEditeImage?.('');
         }
-    }, [image, setArrayLine, setEditeImage, setOriginalImage])
+    }, [setArrayLine, setEditeImage, setOriginalImage]);
+
     return (
         <div className="uploader-session-page">
             <div className="uploader-session-drag">
                 <DragImageComponent
                     onImage={(i) => {
-                        setImage(i);
+                        setImageHandles(i);
                     }}
                 />
             </div>

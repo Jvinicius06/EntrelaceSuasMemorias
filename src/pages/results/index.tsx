@@ -91,24 +91,25 @@ const ResultPage: React.FC<{}> = ({ }) => {
         let arrSTRPath = ' ';
         myArte?.form?.setInside(true);
         for (let i = 0; arrayLines && n && i < n; i++) {
-            if (i === 0) {
+            if (arrayLines[i]) {
+                if (i === 0) {
+                    const line = form?.getCoordinatePointer(arrayLines[i].outPointer);
+                    if (line) arrSTRPath = `M ${ line.x },${ line.y }`;
+                }
                 const line = form?.getCoordinatePointer(arrayLines[i].outPointer);
-                if (line) arrSTRPath = `M ${ line.x },${ line.y }`;
+                if (line) arrSTRPath += ` L ${ line.x },${ line.y }`;
             }
-            const line = form?.getCoordinatePointer(arrayLines[i].outPointer);
-            if (line) arrSTRPath += ` L ${ line.x },${ line.y }`;
         }
         return arrSTRPath;
     });
 
-    const pathLastLine = interpolate([numberLine, arrayLines?.length], (n, _b) => {
+    const pathLastLine = interpolate([numberLine, arrayLines?.length], () => {
         let arrSTRPath = '';
-        if (form && arrayLines && n) {
+        if (form && arrayLines) {
             if (arrayLines[stateNumber]) {
-                const { inPointer, outPointer } = arrayLines[stateNumber];
-                const lineIn = form?.getCoordinatePointer(inPointer);
+                const lineIn = form?.getCoordinatePointer(arrayLines[stateNumber]?.inPointer);
                 arrSTRPath += `M ${ lineIn.x },${ lineIn.y }`;
-                const lineOut = form?.getCoordinatePointer(outPointer);
+                const lineOut = form?.getCoordinatePointer(arrayLines[stateNumber]?.outPointer);
                 arrSTRPath += `L ${ lineOut.x },${ lineOut.y }`;
             }
         }
@@ -130,13 +131,25 @@ const ResultPage: React.FC<{}> = ({ }) => {
         return null;
     }
 
-    if (load === null) return <MyLoader size={200} />;
+    if (load === null) return (
+        <div style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: '300px' }}>
+                <MyLoader size={200} />
+            </div>
+            <p>Este processo pode demorar de 1 a 2 minutos!</p>
+            <p>Aguarde. mesmo que a pagina trave!</p>
+        </div>
+    );
+
     if (load === false) return <Link to="/"><h1>Erro inesperado inicia novamente!</h1></Link>;
     return (
         <div className="results-session">
-            {arrayLines?.length == 0 ? (
-                <div>
-                    <NextButttom title="Start" onClick={startProcessing} />
+            {(arrayLines == null || arrayLines?.length == 0) ? (
+                <div className="startPros">
+                    <div>
+                        <NextButttom title="Start" onClick={() => startProcessing()} />
+                    </div>
+                    <p>Este processo pode demorar de 1 a 2 minutos!</p>
                 </div>
             ) : (
                 <>
