@@ -48,12 +48,13 @@
         flex: 1 !important;
         display: flex;
         justify-content: center;
+        width: 100vw;
         min-height: 100px;
         overflow: visible;
         * {
-            overflow: visible;
+            overflow: hidden;
             top: -10px;
-            transform-origin: 50% 0;
+            transform-origin: 0 0;
         }
     }
 }

@@ -94,10 +94,10 @@ const ResultPage: React.FC<{}> = ({ }) => {
             if (arrayLines[i]) {
                 if (i === 0) {
                     const line = form?.getCoordinatePointer(arrayLines[i].outPointer);
-                    if (line) arrSTRPath = `M ${ line.x },${ line.y }`;
+                    if (line) arrSTRPath = `M ${line.x},${line.y}`;
                 }
                 const line = form?.getCoordinatePointer(arrayLines[i].outPointer);
-                if (line) arrSTRPath += ` L ${ line.x },${ line.y }`;
+                if (line) arrSTRPath += ` L ${line.x},${line.y}`;
             }
         }
         return arrSTRPath;
@@ -108,9 +108,9 @@ const ResultPage: React.FC<{}> = ({ }) => {
         if (form && arrayLines) {
             if (arrayLines[stateNumber]) {
                 const lineIn = form?.getCoordinatePointer(arrayLines[stateNumber]?.inPointer);
-                arrSTRPath += `M ${ lineIn.x },${ lineIn.y }`;
+                arrSTRPath += `M ${lineIn.x},${lineIn.y}`;
                 const lineOut = form?.getCoordinatePointer(arrayLines[stateNumber]?.outPointer);
-                arrSTRPath += `L ${ lineOut.x },${ lineOut.y }`;
+                arrSTRPath += `L ${lineOut.x},${lineOut.y}`;
             }
         }
         return arrSTRPath;
@@ -130,6 +130,8 @@ const ResultPage: React.FC<{}> = ({ }) => {
         }
         return null;
     }
+
+    const divSize = (bounds.width > bounds.height ? bounds.height : bounds.width) - 10;
 
     if (load === null) return (
         <div style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -181,13 +183,15 @@ const ResultPage: React.FC<{}> = ({ }) => {
                         </h4>
                     </div>
                     <div ref={scrubRef} className="image">
-                        <svg width={1000} height={1000} style={{ transform: `scale(${ (bounds.width > bounds.height ? bounds.height : bounds.width) / 1000 })` }}>
-                            <animated.path fill="none" stroke="black" d={pathD} />
-                            <animated.path fill="none" stroke="#ff0000" strokeWidth="6" d={pathLastLine} />
-                            {
-                                getPointer()
-                            }
-                        </svg>
+                        <div style={{ width: `${divSize}px`, height: `${divSize}px` }}>
+                            <svg width={1000} height={1000} style={{ transform: `scale(${(divSize) / 1000})` }}>
+                                <animated.path fill="none" stroke="black" d={pathD} />
+                                <animated.path fill="none" stroke="#ff0000" strokeWidth="6" d={pathLastLine} />
+                                {
+                                    getPointer()
+                                }
+                            </svg>
+                        </div>
                     </div>
                 </>
             )}
